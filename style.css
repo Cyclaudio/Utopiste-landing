@@ -1,10 +1,10 @@
 html, body {
   margin: 0;
   padding: 0;
-  overflow: hidden;
   height: 100vh;
   font-family: Arial, sans-serif;
   background-color: #f8d46c;
+  overflow: hidden;
 }
 
 .container {
@@ -23,6 +23,7 @@ html, body {
   gap: 2rem;
   align-items: center;
   max-width: 1200px;
+  width: 90%;
   height: 80%;
 }
 
@@ -31,6 +32,7 @@ html, body {
   flex-direction: column;
   justify-content: center;
   padding: 1rem;
+  text-align: center;
 }
 
 .center {
@@ -40,12 +42,53 @@ html, body {
 }
 
 .illustration {
-  max-width: 100%;
   max-height: 100%;
+  max-width: 100%;
+  max-height: 300px;
 }
 
 .upload {
   position: absolute;
   bottom: 2rem;
   text-align: center;
+}
+
+.upload button {
+  background-color: #ffd452;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 2px 2px 0px #c89d2c;
+}
+
+/* ---------- Responsive ---------- */
+
+@media screen and (max-width: 900px) {
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 90%;
+    overflow-y: auto; /* fallback si trop petit écran */
+  }
+
+  .section {
+    padding: 0.5rem 1rem;
+  }
+
+  .illustration {
+    max-height: 250px;
+    margin: 1rem 0;
+  }
+
+  .upload {
+    position: static;
+    margin-top: 1rem;
+  }
+
+  body {
+    overflow: auto; /* autorise le scroll uniquement en cas de débordement */
+  }
 }
