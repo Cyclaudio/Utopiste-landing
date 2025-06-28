@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Utopiste par Piste</title>
   <style>
     /* ---------- GLOBAL ---------- */
@@ -43,13 +43,27 @@
       border-radius: 8px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
-    .left {
-      left: 5vw;
-      text-align: left;
+    .left  { left: 5vw;  text-align: left; }
+    .right { right: 5vw; text-align: left; }
+
+    /* ---------- FORMULAIRE NEWSLETTER ---------- */
+    .newsletter-block {
+      position: absolute;
+      bottom: 4rem;               /* remonte juste au-dessus du footer */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80vw;
+      max-width: 480px;
+      background: rgba(255,255,255,0.9);
+      padding: 0.5rem;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     }
-    .right {
-      right: 5vw;
-      text-align: left;
+    .newsletter-block iframe {
+      width: 100%;
+      height: 320px;
+      border: 1px solid #EEE;
+      background: white;
     }
 
     /* ---------- FOOTER ---------- */
@@ -70,7 +84,14 @@
         max-width: 80vw; max-height: 50vh;
       }
       .text-block {
-        display: none; /* on peut masquer sur tout petit écran */
+        display: none; /* on masque les textes pour petits écrans */
+      }
+      .newsletter-block {
+        bottom: 2rem;
+        width: 90vw;
+      }
+      .newsletter-block iframe {
+        height: 280px;
       }
     }
   </style>
@@ -93,6 +114,15 @@
       <p>Collectivités, tiers-lieux, médiathèques, festivals : réservez une étape et faites vibrer votre territoire.</p>
       <p>Chaque escale est restituée sous forme d’un volet audio diffusé librement en ligne et lors d’événements sur place.</p>
     </div>
+  </div>
+
+  <!-- Formulaire Substack -->
+  <div class="newsletter-block">
+    <iframe
+      src="https://cyclaudio.substack.com/embed"
+      frameborder="0"
+      scrolling="no">
+    </iframe>
   </div>
 
   <!-- Footer -->
