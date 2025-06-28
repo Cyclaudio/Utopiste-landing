@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Utopiste par Piste</title>
   <style>
-    /* ---------- GLOBAL ---------- */
+    /* GLOBAL */
     html, body {
       margin: 0; padding: 0;
       width: 100vw; height: 100vh;
@@ -17,85 +17,72 @@
       background-size: cover;
     }
 
-    /* ---------- CONTENEUR + VÉLO ---------- */
+    /* VÉLO + SECTIONS */
     .container {
       position: relative;
       width: 100%; height: 100%;
     }
     .container img {
       position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      max-width: 60vw; max-height: 60vh;
+      top:50%; left:50%;
+      transform: translate(-50%,-50%);
+      max-width:60vw; max-height:60vh;
     }
-
-    /* ---------- BLOCS DE TEXTE ---------- */
     .text-block {
-      position: absolute; top: 50%;
-      width: 25vw; transform: translateY(-50%);
-      padding: 1rem;
+      position: absolute; top:50%;
+      width:25vw; transform: translateY(-50%);
+      padding:1rem;
       background: rgba(255,255,255,0.8);
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      border-radius:8px;
+      box-shadow:0 2px 6px rgba(0,0,0,0.2);
     }
     .left  { left: 5vw; }
     .right { right: 5vw; }
 
-    /* ---------- NEWSLETTER ---------- */
+    /* NEWSLETTER — sans cadre blanc */
     .newsletter-block {
       position: absolute;
       bottom: 4rem;
       left: 50%;
       transform: translateX(-50%);
       width: 80vw; max-width: 480px;
-      /* hauteur automatique pour le texte + form */
-      padding: 1rem 1.2rem;
-      background: rgba(255,255,255,0.9);
-      border-radius: 6px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
       text-align: center;
     }
     .newsletter-block p {
-      margin: 0 0 0.8rem;
-      font-size: 0.95rem;
-      color: #333;
+      margin: 0 0 .5rem;
+      font-size: .95rem;
+      color: #222;
+      text-shadow: 1px 1px 2px rgba(255,255,255,0.6);
     }
     .newsletter-inner {
       position: relative;
-      width: 100%;
-      height: 70px;  /* champ + bouton */
+      height: 70px;   /* hauteur du champ + bouton */
       overflow: hidden;
-      margin: 0 auto;
     }
     .newsletter-inner iframe {
       width: 100%;
       height: 320px;
-      border: none;
-      /* on remonte l’iframe pour ne montrer que l’input+bouton */
+      border: 0;
+      background: transparent;
       transform: translateY(-210px);
     }
-    /* on override la couleur du bouton */
-    .newsletter-inner iframe::part(button) {
-      background-color: #D84315; /* rouge issu de l’illustration */
-    }
 
-    /* ---------- FOOTER ---------- */
+    /* FOOTER */
     footer {
       position: absolute;
       bottom: 0; width: 100%;
       padding: .8rem 0;
       background: rgba(0,0,0,0.5);
-      color: #fff; text-align: center;
+      color: white; text-align: center;
       font-size: .9rem;
     }
 
-    /* ---------- MOBILE ---------- */
+    /* MOBILE */
     @media (max-width: 800px) {
-      .container img { max-width: 80vw; max-height: 50vh; }
+      .container img { max-width:80vw; max-height:50vh; }
       .text-block { display: none; }
       .newsletter-block {
-        bottom: 2rem; width: 90vw;
-        padding: .8rem 1rem;
+        bottom:2rem; width:90vw;
       }
       .newsletter-inner iframe {
         transform: translateY(-190px);
@@ -118,9 +105,9 @@
     </div>
   </div>
 
-  <!-- Newsletter -->
+  <!-- Newsletter sans cadre blanc -->
   <div class="newsletter-block">
-    <p>Suivez l’aventure et recevez nos dernières escales par e-mail :</p>
+    <p>Suivez l’aventure et recevez nos dernières escales :</p>
     <div class="newsletter-inner">
       <iframe
         src="https://cyclaudio.substack.com/embed"
