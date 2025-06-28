@@ -7,25 +7,20 @@
   <style>
     /* ---------- GLOBAL ---------- */
     html, body {
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
       width: 100vw; height: 100vh;
       overflow: hidden;
       font-family: Arial, sans-serif;
-      color: #222;
     }
     body {
       background: url('fond.png') no-repeat center center fixed;
       background-size: cover;
     }
 
-    /* ---------- CONTENEUR ---------- */
     .container {
       position: relative;
       width: 100%; height: 100%;
     }
-
-    /* ---------- IMAGE VÉLO ---------- */
     .container img {
       position: absolute;
       top: 50%; left: 50%;
@@ -33,90 +28,83 @@
       max-width: 60vw; max-height: 60vh;
     }
 
-    /* ---------- BLOCS TEXTE ---------- */
+    /* ---------- TEXTE ---------- */
     .text-block {
-      position: absolute;
-      top: 50%; width: 25vw;
-      transform: translateY(-50%);
+      position: absolute; top: 50%;
+      width: 25vw; transform: translateY(-50%);
       padding: 1rem;
       background: rgba(255,255,255,0.8);
       border-radius: 8px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
-    .left  { left: 5vw;  text-align: left; }
-    .right { right: 5vw; text-align: left; }
+    .left  { left: 5vw; }
+    .right { right: 5vw; }
 
-    /* ---------- FORMULAIRE NEWSLETTER ---------- */
+    /* ---------- NEWSLETTER (ROGNAGE) ---------- */
     .newsletter-block {
       position: absolute;
-      bottom: 4rem;               /* remonte juste au-dessus du footer */
+      bottom: 4rem;
       left: 50%;
       transform: translateX(-50%);
+      /* Hauteur exactement celle du champ+bouton */
+      height: 70px;       
+      overflow: hidden;
       width: 80vw;
       max-width: 480px;
-      background: rgba(255,255,255,0.9);
-      padding: 0.5rem;
       border-radius: 6px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     }
     .newsletter-block iframe {
+      /* dimensions d’origine Substack */
       width: 100%;
       height: 320px;
       border: 1px solid #EEE;
       background: white;
+      /* on remonte l’iframe vers le haut pour ne montrer que la zone utile */
+      transform: translateY(-200px);
     }
 
     /* ---------- FOOTER ---------- */
     footer {
       position: absolute;
-      bottom: 0;
-      width: 100%;
-      padding: 0.8rem 0;
+      bottom: 0; width: 100%;
+      padding: .8rem 0;
       background: rgba(0,0,0,0.5);
-      color: white;
-      text-align: center;
-      font-size: 0.9rem;
+      color: #fff; text-align: center;
+      font-size: .9rem;
     }
 
     /* ---------- MOBILE ---------- */
     @media (max-width: 800px) {
-      .container img {
-        max-width: 80vw; max-height: 50vh;
-      }
-      .text-block {
-        display: none; /* on masque les textes pour petits écrans */
-      }
+      .container img { max-width: 80vw; max-height: 50vh; }
+      .text-block { display: none; }
       .newsletter-block {
         bottom: 2rem;
         width: 90vw;
+        /* Ajuste si nécessaire */
       }
       .newsletter-block iframe {
-        height: 280px;
+        transform: translateY(-180px);
       }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- Bloc de texte à gauche -->
     <div class="text-block left">
       <h2>Le projet</h2>
       <p><strong>Utopiste par Piste</strong> est une installation sonore itinérante qui transforme chaque escale en laboratoire d’histoires vivantes.</p>
-      <p>À bord d’un triporteur aménagé en studio mobile, nous collectons <em>sons d’ambiance</em>, <em>témoignages</em> et <em>paysages sonores</em> pour composer une carte postale audio de chaque territoire.</p>
     </div>
 
-    <!-- Triporteur centré -->
     <img src="bike.png" alt="Triporteur audio">
 
-    <!-- Bloc de texte à droite -->
     <div class="text-block right">
       <h2>Accueillir l'escale</h2>
       <p>Collectivités, tiers-lieux, médiathèques, festivals : réservez une étape et faites vibrer votre territoire.</p>
-      <p>Chaque escale est restituée sous forme d’un volet audio diffusé librement en ligne et lors d’événements sur place.</p>
     </div>
   </div>
 
-  <!-- Formulaire Substack -->
+  <!-- On ne voit plus que le champ+bouton -->
   <div class="newsletter-block">
     <iframe
       src="https://cyclaudio.substack.com/embed"
@@ -125,7 +113,6 @@
     </iframe>
   </div>
 
-  <!-- Footer -->
   <footer>
     Utopiste par Piste est un projet porté par l’association <strong>CYCLAUDIO</strong> — © 2025
   </footer>
