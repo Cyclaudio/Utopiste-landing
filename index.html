@@ -11,86 +11,106 @@
       width: 100vw; height: 100vh;
       overflow: hidden;
       font-family: Arial, sans-serif;
+      color: #1e4c64;
     }
     body {
       background: url('fond.png') no-repeat center center fixed;
       background-size: cover;
     }
 
+    /* HEADER */
+    header {
+      position: absolute; top:1rem;
+      width:100%; text-align:center; z-index:10;
+    }
+    header h1 {
+      margin:0; font-size:2rem;
+      text-transform:uppercase; letter-spacing:.1em;
+      text-shadow:1px 1px 2px rgba(255,255,255,0.7);
+    }
+
     /* VÉLO + SECTIONS */
     .container {
-      position: relative;
-      width: 100%; height: 100%;
+      position:relative; width:100%; height:100%;
     }
     .container img {
-      position: absolute;
-      top:50%; left:50%;
-      transform: translate(-50%,-50%);
+      position:absolute; top:50%; left:50%;
+      transform:translate(-50%,-50%);
       max-width:60vw; max-height:60vh;
     }
     .text-block {
-      position: absolute; top:50%;
+      position:absolute; top:50%;
       width:25vw; transform: translateY(-50%);
       padding:1rem;
-      background: rgba(255,255,255,0.8);
+      background:rgba(255,255,255,0.8);
       border-radius:8px;
       box-shadow:0 2px 6px rgba(0,0,0,0.2);
+      color:#222;
     }
-    .left  { left: 5vw; }
-    .right { right: 5vw; }
+    .left { left:5vw; }
+    .right{ right:5vw; }
 
-    /* NEWSLETTER — sans cadre blanc */
+    /* NEWSLETTER via widget Substack */
     .newsletter-block {
-      position: absolute;
-      bottom: 4rem;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80vw; max-width: 480px;
-      text-align: center;
+      position:absolute;
+      bottom:4rem; left:50%;
+      transform:translateX(-50%);
+      width:80vw; max-width:480px;
+      text-align:center;
     }
     .newsletter-block p {
-      margin: 0 0 .5rem;
-      font-size: .95rem;
-      color: #222;
-      text-shadow: 1px 1px 2px rgba(255,255,255,0.6);
+      margin:0 0 .5rem;
+      font-size:.95rem;
+      color:#222;
+      text-shadow:1px 1px 2px rgba(255,255,255,0.6);
     }
-    .newsletter-inner {
-      position: relative;
-      height: 70px;   /* hauteur du champ + bouton */
-      overflow: hidden;
+    /* on cible le form généré */
+    #substack-embed form {
+      display:flex;
+      width:100%;
+      background:rgba(255,255,255,0.9);
+      border-radius:4px;
+      overflow:hidden;
     }
-    .newsletter-inner iframe {
-      width: 100%;
-      height: 320px;
-      border: 0;
-      background: transparent;
-      transform: translateY(-210px);
+    #substack-embed input {
+      flex:1;
+      padding:.6rem .8rem;
+      border:none;
+      font-size:1rem;
+    }
+    #substack-embed button {
+      padding:.6rem 1rem;
+      background:#D84315; /* rouge illustration */
+      color:#fff;
+      border:none;
+      cursor:pointer;
+      font-size:1rem;
     }
 
     /* FOOTER */
     footer {
-      position: absolute;
-      bottom: 0; width: 100%;
-      padding: .8rem 0;
-      background: rgba(0,0,0,0.5);
-      color: white; text-align: center;
-      font-size: .9rem;
+      position:absolute; bottom:0;
+      width:100%; padding:.8rem 0;
+      background:rgba(0,0,0,0.5);
+      color:#fff; text-align:center;
+      font-size:.9rem;
     }
 
     /* MOBILE */
-    @media (max-width: 800px) {
+    @media (max-width:800px) {
       .container img { max-width:80vw; max-height:50vh; }
-      .text-block { display: none; }
+      .text-block { display:none; }
       .newsletter-block {
         bottom:2rem; width:90vw;
-      }
-      .newsletter-inner iframe {
-        transform: translateY(-190px);
       }
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>Utopiste par Piste</h1>
+  </header>
+
   <div class="container">
     <div class="text-block left">
       <h2>Le projet</h2>
@@ -105,15 +125,10 @@
     </div>
   </div>
 
-  <!-- Newsletter sans cadre blanc -->
   <div class="newsletter-block">
     <p>Suivez l’aventure et recevez nos dernières escales :</p>
-    <div class="newsletter-inner">
-      <iframe
-        src="https://cyclaudio.substack.com/embed"
-        scrolling="no">
-      </iframe>
-    </div>
+    <div id="substack-embed"></div>
+    <script async src="https://cyclaudio.substack.com/embed.js"></script>
   </div>
 
   <footer>
