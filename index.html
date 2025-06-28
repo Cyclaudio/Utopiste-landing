@@ -1,40 +1,41 @@
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Utopiste par Piste</title>
   <style>
+    /* ---------- RESET & GLOBAL ---------- */
     html, body {
       margin: 0;
       padding: 0;
-      height: 100vh;
       width: 100vw;
+      height: 100vh;
       font-family: Arial, Helvetica, sans-serif;
       background: #e8ce69;
-    }
-    body {
       overflow: hidden;
+      box-sizing: border-box;
     }
 
+    /* ---------- LAYOUT PRINCIPAL ---------- */
     .container {
-      height: 100%;
-      width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       position: relative;
+      width: 100%;
+      height: 100%;
     }
 
     .content {
       display: grid;
       grid-template-columns: minmax(220px, 1fr) auto minmax(220px, 1fr);
       align-items: center;
-      height: 100%;
+      gap: 2rem;
       width: 100%;
       max-width: 1400px;
-      gap: 2rem;
-      box-sizing: border-box;
+      height: 100%;
       padding: 0 2rem;
     }
 
@@ -43,14 +44,14 @@
       flex-direction: column;
       justify-content: center;
     }
-    .section.left,
-    .section.right {
-      align-items: flex-start;
+    .section.left, .section.right {
       text-align: left;
+      align-items: flex-start;
     }
+
     h2 {
       font-size: 1.8rem;
-      margin: 0 0 1rem 0;
+      margin: 0 0 1rem;
     }
     h3 {
       font-size: 1.3rem;
@@ -69,40 +70,42 @@
       height: 100%;
     }
     .illustration {
-      height: 95vh;
-      width: auto;
       max-width: 90vw;
+      max-height: 95vh;
       object-fit: contain;
     }
 
-    .footer {
+    /* ---------- FOOTER ---------- */
+    footer.footer {
       position: absolute;
       bottom: 0;
       left: 0;
       width: 100%;
-      text-align: center;
-      font-size: 0.9rem;
       padding: 0.6rem 0;
       background: rgba(0, 0, 0, 0.05);
+      text-align: center;
+      font-size: 0.9rem;
     }
 
+    /* ---------- RESPONSIVE (<900px) ---------- */
     @media (max-width: 900px) {
-      body {
+      html, body {
         overflow: auto;
+        height: auto;
       }
       .content {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
         gap: 1.5rem;
         height: auto;
-        padding: 1rem;
       }
       .center {
         order: -1;
       }
       .illustration {
-        height: auto;
         width: 100%;
+        height: auto;
         max-width: 100%;
       }
       .section {
@@ -112,7 +115,7 @@
       p {
         max-width: 90%;
       }
-      .footer {
+      footer.footer {
         position: static;
         background: transparent;
         padding: 1rem 0 2rem;
@@ -123,30 +126,40 @@
 <body>
   <div class="container">
     <div class="content">
+      <!-- COLONNE GAUCHE -->
       <div class="section left">
         <h2>Le projet</h2>
-        <p><strong>Utopiste&nbsp;par&nbsp;Piste</strong> est une installation sonore itinérante qui transforme chaque escale en laboratoire d’histoires vivantes.</p>
+        <p><strong>Utopiste par Piste</strong> est une installation sonore itinérante qui transforme chaque escale en laboratoire d’histoires vivantes.</p>
         <p>À bord d’un triporteur aménagé en studio mobile, nous collectons <em>sons d’ambiance</em>, <em>témoignages</em> et <em>paysages sonores</em> pour composer une carte postale audio de chaque territoire.</p>
-        <p>Notre objectif&nbsp;: <br>▶&nbsp;Valoriser la mémoire orale&nbsp;;<br>▶&nbsp;Faire vibrer les lieux visités&nbsp;;<br>▶&nbsp;Partager des contenus libres de droits.</p>
+        <p>Notre objectif :<br>
+          ▶ Valoriser la mémoire orale ;<br>
+          ▶ Faire vibrer les lieux visités ;<br>
+          ▶ Partager des contenus libres de droits.
+        </p>
       </div>
 
+      <!-- IMAGE CENTRALE -->
       <div class="center">
-        <img src="utopiste-par-piste.png" alt="Triporteur audio – Utopiste par piste" class="illustration" />
+        <img src="utopiste-par-piste.png"
+             alt="Triporteur audio – Utopiste par Piste"
+             class="illustration">
       </div>
 
+      <!-- COLONNE DROITE -->
       <div class="section right">
         <h2>Prochaines escales</h2>
-        <p><strong>Juillet&nbsp;2025 :</strong> Festival des Voix – Sainte‑Soule</p>
-        <p><strong>Août&nbsp;2025 :</strong> Marché nocturne – Evaux‑les‑Bains</p>
-        <p><strong>Septembre&nbsp;2025 :</strong> Fête des Possibles – Parthenay</p>
+        <p><strong>Juillet 2025 :</strong> Festival des Voix – Sainte-Soule</p>
+        <p><strong>Août 2025 :</strong> Marché nocturne – Evaux-les-Bains</p>
+        <p><strong>Septembre 2025 :</strong> Fête des Possibles – Parthenay</p>
 
         <h3>Accueillir le triporteur</h3>
-        <p>Collectivités, tiers‑lieux, médiathèques, festivals&nbsp;: réservez une étape et faites vibrer votre territoire.</p>
+        <p>Collectivités, tiers-lieux, médiathèques, festivals : réservez une étape et faites vibrer votre territoire.</p>
       </div>
     </div>
 
+    <!-- PIED DE PAGE -->
     <footer class="footer">
-      Utopiste par Piste est un projet porté par l’association<strong> CYCLAUDIO</strong> — © 2025
+      Utopiste par Piste est un projet porté par l’association <strong>CYCLAUDIO</strong> — © 2025
     </footer>
   </div>
 </body>
